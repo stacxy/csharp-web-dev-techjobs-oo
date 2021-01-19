@@ -61,18 +61,17 @@ namespace TechJobsTests
         }
 
         [TestMethod]
-        public void TestJobToString_eachLineContainsFieldDataLabel()
+        public void TestJobToString_eachFieldContainsOwnLine_LabelThenData()
         {
             var jobString = _job.ToString();
             var fields = jobString.Split("\n");
-            var employerData = fields[4];
-           //var expected = "Employer : Acme";
+            var employerData = fields[3];
 
             Assert.AreEqual(employerData, "Employer : ACME");
         }
 
         [TestMethod]
-        public void testJobToString_emptyField_dataNotAvailable()
+        public void TestJobToString_emptyField_dataNotAvailable()
         {
             var emptyJob = new Job("Empty job", new Employer(), new Location(), new PositionType(), new CoreCompetency()); ;
             var jobString = emptyJob.ToString();
